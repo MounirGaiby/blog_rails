@@ -2,9 +2,10 @@
 
 # blog_posts table Model
 class BlogPost < ApplicationRecord
-  validates :title, presence: true
-  validates :body, presence: true
+  has_rich_text :content
 
+  validates :title, presence: true
+  validates :content, presence: true
   scope :sorted, -> { order(published_at: :desc, updated_at: :desc) }
   scope :draft, -> { where(published_at: nil) }
   scope :published, -> { where('published_at <= ?', Time.current) }

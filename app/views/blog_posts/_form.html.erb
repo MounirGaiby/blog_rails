@@ -11,14 +11,14 @@
       <%= form.label :title %>
       <%= form.text_field :title %>
     </div>
-    <div class="p-3 flex gap-3">
-      <%= form.label :body %>
-      <%= form.text_area :body %>
+    <div class="p-3 flex gap-3 items-center">
+      <%= form.label :content %>
+      <div class="flex-col"><%= form.rich_text_area :content %></div>
     </div>
     <div class="p-3 flex gap-3">
       <%= form.label :published_at %>
       <%= form.datetime_select :published_at %>
     </div>
-    <%= form.button %>
+    <%= form.button class: "rounded bg-blue-300 p-4 font-bold" %>
   <% end %>
 </div>
