@@ -1,20 +1,24 @@
 <div class="p-4 flex-col gap-2">
-    <%= form_with model: blog_post do |form| %>
+  <%= form_with model: blog_post do |form| %>
     <% if form.object.errors.any? %>
-        <div>
-            <% form.object.errors.full_messages.each do |message| %>
-                <div><%= message %></div>
-            <% end %>
-            </div>
+      <div>
+        <% form.object.errors.full_messages.each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
     <% end %>
-        <div class="p-3 flex gap-3">
-            <%= form.label :title %>
-                <%= form.text_field :title %>
-        </div>
-        <div class="p-3 flex gap-3">
-            <%= form.label :body %>
-                <%= form.text_area :body %>
-        </div>
-        <%= form.button %>
-            <% end %>
+    <div class="p-3 flex gap-3">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="p-3 flex gap-3">
+      <%= form.label :body %>
+      <%= form.text_area :body %>
+    </div>
+    <div class="p-3 flex gap-3">
+      <%= form.label :published_at %>
+      <%= form.datetime_select :published_at %>
+    </div>
+    <%= form.button %>
+  <% end %>
 </div>
